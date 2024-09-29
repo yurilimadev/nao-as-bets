@@ -1,0 +1,117 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="description" content="Dê seu relato sobre sua experiência com jogos de azar, bets, casas de apostas. Não precisa ter sido com você.">
+    <meta name="keywords" content="projeto+social, bet, bets, tigrinho, jogos+de+azar">
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex,nofollow">
+    
+    <title>#Não Às Bets</title>
+    <script src="script.js"></script>
+  </head>
+  <body>
+
+    <!--Cabeçalho-->
+
+    <header>
+      <div>
+        <h1>Mural de Depoimentos Contra as BETs!</h1>
+      </div>
+    </header>
+
+    <!--Seção 1 = Descrição do Site e Carrossel Youtube Sobre Bets-->
+    <section>
+      <!--Título e Descrição-->
+      <div class="descricao">
+
+        <h1>Conte Sua História Com as Bets de Forma Anônima</h1>
+
+        <p>
+          Essa é uma iniciativa para ajudar na <b>conscientização dos perigos psicológicos e físicos</b> que as casas de apostas e jogos de azar podem causar na mente de crianças, jovens e adultos. Esse é um projeto simples, mas feito de coração para ajudar os projetos de lei contra às bets. Caso, não saiba do impacto, o vídeo abaixo do <a href="https://iclnoticias.com.br/">Instituto Conhecimento Liberta - Nóticias</a> sobre o tema posso te ambientar na situação. Assista o vídeo e tire suas próprias conclusões!
+        </p>
+
+      </div>
+      <!--Carrosel YT Sobre Bets-->
+      <div class="galeria-container">
+
+        <button class="btn-prev">&#10094;</button>
+        <div class="galeria">
+          
+
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/afiH68ZtmWw?si=QZUEob0roZzvpd7j" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/B091XCaKWus?si=IVKsiXnEZZCAztK0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          
+          
+        </div>
+        <button class="btn-next">&#10095;</button>
+        
+      </div>
+      
+      
+      
+    </section>
+
+    <!--Seção 2 = Formulário-->
+    <section>
+      <!--Dicas-->
+      <div class="estilo-form-geral">
+        <div>
+          <h2>Escreva seu depoimento de forma anônima</h2>
+          <p>Basta apenas escrever seu depoimento o estado. Pedimos o estado apenas para saber como o Brasil está apoiando esse projeto.</p>
+          <h3>Dicas e recomendações para se proteger mais</h3>
+          <ul>
+            <li>Use pseudônimos(nomes inventados) para proteger mais ainda sua identidade.</li>
+            <li>Não haverá checagem dos depoimentos, então seja sincero! Essa é uma iniciativa para conscientizar as pessoas sobre o perigo das bet e casas de apostas.</li>
+          </ul> 
+        </div>
+        <!--Formulário-->
+        <form method="post" action="index.php" class="form-depoimento" id="id-form-depo">
+          <!--Formulário-->
+          <label>Depoimento:
+            <textarea name="depoimento" placeholder="Deixe no mural seu relato..." required></textarea> 
+          </label>
+          <!--Formulário-->
+          <label>Qual estado?
+            <select id="estados" name="estado">
+              
+            </select>
+            <script>
+              selecionarEstados();
+            </script>
+          </label>
+          <!--Botão Para Cadastrar Depoimento-->
+          <input type="submit" name="cadastrar_depoimento" value="Cadastrar Depoimento">
+          
+        </form>  
+      </div>
+      
+      
+    </section>
+
+    <!--Seção 3 = Depoimentos dinâmicos-->
+    <section>
+      <div>
+        <h2 style="text-align: center;">Depoimentos Registrados</h2>
+        <div id="depoimentos"></div>
+      </div>
+    </section>
+    <script>
+      fetch('index.php')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('depoimentos').innerHTML = data;
+      });
+    </script>
+
+    <!--Rodapé-->
+    <footer class="rodape">
+      <div>
+        <p>Projeto Social<a href="https://github.com/yurilimadev/nao-as-bets"> - Repositório completo: Github</a></p> 
+      </div>  
+    </footer>
+
+  </body>
+</html>
