@@ -18,7 +18,7 @@
   Esse pequeno projeto voluntário foi feito para mostrar que mesmo ideias pequenas podem ajudar de alguma forma as pessoas ao nosso redor. E se vocês estão curiosos de como eu fiz 
   esse projeto foi feito com:
   
-  [![My Skills](https://skillicons.dev/icons?i=php,html,css,sqlite)](https://skillicons.dev)
+  [![My Skills](https://skillicons.dev/icons?i=php,html,js,css,sqlite)](https://skillicons.dev)
 </p>
 
 ## Observação Pessoal
