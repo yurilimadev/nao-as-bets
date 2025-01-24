@@ -1,0 +1,12 @@
+# Ignorar diretórios gerados pelo Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignorar ambientes virtuais
+venv/
+
+# Ignorar arquivos de configuração e variáveis de ambiente
+.env
+
+

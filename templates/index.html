@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+<!--Corpo-->
+<main class="w-[92%] mx-auto">
+    <section class="bg-[#f7f7f7]">
+        <div class="flex flex-col justify-between items-center px-20 py-20">
+            <h1 class="text-3xl">Marque na internet a sua história</h1>
+            <p>Escreva seu depoimento sobre às Bets(casas de apostas) ou sobre sua experiência sobre 
+                a escala 6x1! Faça isso de forma totalmente anônima. As únicas informações que pedidos são 
+                o estado, genero e idade. Com essa informações podemos ter uma estimativa da situações que 
+                esses estratos demográficos estão passando. 
+            </p>
+            <div  class="flex items-center gap-6">
+                <button id="form-botao" class="bg-[#a6c1ee] text-white px-5 py-2 rounded-full hover:bg-[#87acec]">Contar minha história!</button>
+            </div>
+            <dialog class="relative form-depo w-96 p-6 shadow-lg bg-white rounded-md">
+                <form action="{{ url_for('index') }}" method="POST" novalidate>
+                    <h1 class="text-2xl">Conte para a internet a sua experiência</h1>
+                    {{ form_depoimento.hidden_tag() }}
+                    
+                    <!-- Sexo -->
+                    <div class="mb-4">
+                        {{ form_depoimento.assunto.label(class_="block text-gray-700") }}
+                        {{ form_depoimento.assunto(class_="flex gap-4") }}
+                        {% for error in form_depoimento.assunto.errors %}
+                            <p class="text-red-500 text-sm">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    
+                    <!-- Título -->
+                    <div class="mb-4">
+                        {{ form_depoimento.titulo.label(class_="block text-gray-700") }}
+                        {{ form_depoimento.titulo(class_="border border-gray-300 rounded w-full px-3 py-2") }}
+                        {% for error in form_depoimento.titulo.errors %}
+                            <p class="text-red-500 text-sm">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+        
+                    <!-- Idade -->
+                    <div class="mb-4">
+                        {{ form_depoimento.idade.label(class_="block text-gray-700") }}
+                        {{ form_depoimento.idade(class_="border border-gray-300 rounded w-full px-3 py-2") }}
+                        {% for error in form_depoimento.idade.errors %}
+                            <p class="text-red-500 text-sm">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+        
+                    <!-- Sexo -->
+                    <div class="mb-4">
+                        {{ form_depoimento.sexo.label(class_="block text-gray-700") }}
+                        {{ form_depoimento.sexo(class_="flex gap-4") }}
+                        {% for error in form_depoimento.sexo.errors %}
+                            <p class="text-red-500 text-sm">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+        
+                    <!-- Estado -->
+                    <div class="mb-4">
+                        {{ form_depoimento.estado.label(class_="block text-gray-700") }}
+                        {{ form_depoimento.estado(class_="border border-gray-300 rounded w-full px-3 py-2") }}
+                        {% for error in form_depoimento.estado.errors %}
+                            <p class="text-red-500 text-sm">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+        
+                    <!-- Depoimento -->
+                    <div class="mb-4">
+                        {{ form_depoimento.depoimento.label(class_="block text-gray-700") }}
+                        {{ form_depoimento.depoimento(class_="border border-gray-300 rounded w-full px-3 py-2") }}
+                        {% for error in form_depoimento.depoimento.errors %}
+                            <p class="text-red-500 text-sm">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+        
+                    <!-- Botão -->
+                    <div class="flex items-center gap-6">
+                        {{ form_depoimento.submit(class_="bg-blue-500 text-white px-5 py-2 rounded hover:bg-blue-400") }}
+                    </div>
+                    
+                </form>
+                
+                <div class="absolute top-0 right-0 items-center gap-6">
+                    <button class="close-form bg-[#a6c1ee] text-white px-5 py-2 rounded-full hover:bg-[#87acec]">X</button>
+                    
+                </div>
+            </dialog>
+            
+        </div>
+        
+    </section>
+    <section class="flex flex-col items-center my-4 py-5">
+        <div>
+            <h1 class="text-3xl">Veja os depoimentos.</h1>
+            <p class="text-sm text-[#b2b2b2]">(Escolha qualquer um dos tópicos abaixo)</p>
+        </div>
+       
+        <div class="flex gap-6">
+            <div class="flex items-center gap-6">
+                <button id="seis-por-um" class="bg-[#a6c1ee] text-white px-5 py-2 rounded-full hover:bg-[#87acec]">6 x 1</button>
+                
+            </div>
+            <div class="flex items-center gap-6">
+                <button id="bets" class="bg-[#a6c1ee] text-white px-5 py-2 rounded-full hover:bg-[#87acec]">Bets</button>
+                
+            </div>
+        </div>
+        
+        
+    </section>
+    <section class="mt-10">
+        <!--Mockup Depoimento-->
+        <div class="grid md:grid-cols-4 gap-6 flex-wrap w-[92%] mx-auto ">
+            <div id="area-depoimento" class="shadow-lg hover:scale-105 transition-all duration-300 ease-in-out">
+                
+        </div>
+    </section>
+    
+</main>
+<!--Rodapé-->
+<footer>
+    
+</footer>
+
+{% endblock %}
