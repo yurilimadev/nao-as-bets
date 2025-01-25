@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const areaDocumentos = document.querySelector('#area-depoimento');
 
     botaoSeisPorUm.addEventListener('click',()=>{
-        fetch('static/templates/depoimento-seis-por-um.html')
+        fetch('/depoimento/seis-por-um')
         .then(response =>{
             if (!response.ok){
                 throw new Error('Não foi possível carregar o conteúdo');
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     })
 
     botaoBets.addEventListener('click', ()=>{
-        fetch('static/templates/depoimento-bets.html')
+        fetch('/depoimento/bets')
         .then(response =>{
             if (!response.ok){
                 throw new Error('Não foi possível carregar o conteúdo');

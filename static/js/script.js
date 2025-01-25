@@ -46,12 +46,12 @@ document.addEventListener('DOMContentLoaded', () =>{
 // Modais
 
 
-function openModal() {
-    const modal = document.getElementById('textModal');
+function openModal(id) {
+    const modal = document.getElementById(`textModal-${id}`);
     modal.showModal();
 }
 
-function closeModal() {
-    const modal = document.getElementById('textModal');
+function closeModal(id) {
+    const modal = document.getElementById(`textModal-${id}`);
     modal.close();
 }
