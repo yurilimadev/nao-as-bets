@@ -55,3 +55,57 @@ function closeModal(id) {
     const modal = document.getElementById(`textModal-${id}`);
     modal.close();
 }
+
+
+function abrirFormulario(){
+    const editarBotoes = document.querySelectorAll(".editar");
+
+    editarBotoes.forEach((botao) => {
+        botao.addEventListener("click", async (event) => {
+            console.log("Clicado no botão Editar");
+            function closeForm(idDepoimento) { // Aceita o ID como parâmetro
+                const dialog = document.querySelector(`#textModal-${idDepoimento}`);
+                if (dialog) {
+                    dialog.close();
+                }
+            }
+        
+            // Captura o ID do depoimento a partir do atributo data-id
+            const idDepoimento = botao.dataset.id;
+
+            // Seleciona o dialog correspondente
+            const dialog = document.querySelector(`#textModal-${idDepoimento}`);
+
+            if (dialog) {
+                console.log(`Abrindo modal para o depoimento com ID: ${idDepoimento}`);
+
+                // Substitui o conteúdo do modal pelo formulário de edição
+                try{
+                    const response = await fetch(`/get-form`);
+                    const data = await response.json();
+                    dialog.innerHTML = data.html;
+                    dialog.showModal();
+                    dialog.classList.add(`form-remover-${idDepoimento}`)
+
+
+                    const botaoFechar = dialog.querySelector('.close-form'); // Seletor para o botão fechar
+                    if (botaoFechar) {
+                        botaoFechar.addEventListener('click', () => closeForm(idDepoimento));
+                    }
+                }
+
+                catch(error){
+                    console.error("Erro ao abrir modal:", error);
+                }
+            } else {
+                console.error(`Dialog com ID textModal-${idDepoimento} não encontrado.`);
+            }
+            
+        });
+    });
+    
+}
+
+
+
+

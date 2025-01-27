@@ -1,6 +1,6 @@
-<div class="grid md:grid-cols-4 gap-6 flex-wrap w-[92%] mx-auto ">
+<div class="grid md:grid-cols-4 gap-6 flex-wrap w-[92%] mx-auto">
     {% for depoimento in depoimentos %}
-    <div class="depoimento shadow-lg hover:scale-105 transition-all duration-300 ease-in-out">
+    <div class="depoimento shadow-lg px-4 py-2 hover:scale-105 transition-all duration-300 ease-in-out">
         <img src="" alt="">
         <h1 class="text-2xl">{{ depoimento.titulo }}</h1>
         <p class="text-sm text-[#b2b2b2]">{{ depoimento.estado }} - {{ depoimento.idade }} anos - {{ depoimento.sexo }}</p>
@@ -14,16 +14,22 @@
                 Ver Mais
             </button>
         </div>
-        
-        <dialog id="textModal-{{ depoimento.id }}" class="rounded-lg p-6 w-1/2 max-w-lg bg-white shadow-lg">
-            <h2 class="text-xl font-bold mb-4">Texto Completo</h2>
+
+        <dialog id="textModal-{{ depoimento.id }}" class="churn rounded-lg p-6 w-[80%] max-w-lg bg-white shadow-lg">
+            <h2 class="text-xl font-bold mb-4">{{ depoimento.titulo }}</h2>
             <p>
                 {{ depoimento.depoimento }}
             </p>
-            <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" onclick="closeModal('{{ depoimento.id }}')">
-                Fechar
-            </button>
+            <div class="flex justify-end gap-6">
+                <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" onclick="closeModal('{{ depoimento.id }}')">
+                    Fechar
+                </button>
+                <button class="editar mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-blue-600" data-id="{{ depoimento.id }}" onclick="abrirFormulario(this)">
+                    Editar
+                </button>
+            </div>
         </dialog>
     </div>
     {% endfor %}
-</div>  
+</div>
+

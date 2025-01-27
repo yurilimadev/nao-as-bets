@@ -1,5 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
-
+from datetime import datetime
 db = SQLAlchemy()
 
 
@@ -11,6 +11,20 @@ class Depoimento(db.Model):
     estado = db.Column(db.String(50), nullable=False)
     depoimento = db.Column(db.Text, nullable=False)
     assunto = db.Column(db.String(50), nullable=False)
+    data_cadastro = db.Column(db.DateTime, default=datetime.timestamp)
 
     def __repr__(self):
         return f'<Depoimento {self.titulo}>'
+
+
+class ChurnDepoimento(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    motivo = db.Column(db.String(10), nullable=False)
+    assunto = db.Column(db.String(10), nullable=False)
+    depoimento_id = db.Column(db.Integer, db.ForeignKey('depoimento.id'))
+    data_exclusao = db.Column(db.DateTime, default=datetime.timestamp)
+
+    depoimento = db.relationship('Depoimento', backref='churns')
+
+    def __repr__(self):
+        return f'<Depoimento {self.depoimento_id}>'

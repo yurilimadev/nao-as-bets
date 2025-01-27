@@ -1,0 +1,34 @@
+
+<form class="" action="{{ url_for('get_form') }}" method="POST" novalidate>
+    <h1 class="text-2xl">Conte para a internet a sua experiência</h1>
+    {{ form_churn.hidden_tag() }}
+    <!-- Assunto -->
+    <div class="mb-4">
+        {{ form_churn.assunto.label(class_="block text-gray-700") }}
+        {{ form_churn.assunto(class_="flex gap-4") }}
+        {% for error in form_churn.assunto.errors %}
+            <p class="text-red-500 text-sm">{{ error }}</p>
+        {% endfor %}
+    </div>
+
+    <!-- Motivo -->
+    <div class="mb-4">
+        {{ form_churn.motivo.label(class_="block text-gray-700") }}
+        {{ form_churn.motivo(class_="border border-gray-300 rounded w-full px-3 py-2") }}
+        {% for error in form_churn.motivo.errors %}
+            <p class="text-red-500 text-sm">{{ error }}</p>
+        {% endfor %}
+    </div>
+
+    <!-- Botão -->
+    <div class="flex items-center gap-6">
+        {{ form_churn.submit(class_="bg-blue-500 text-white px-5 py-2 rounded hover:bg-blue-400") }}
+    </div>
+    <div class="absolute top-0 right-0 items-center gap-6">
+        <button type="button" class="fechar-modal close-form bg-[#a6c1ee] text-white px-5 py-2 rounded-full hover:bg-[#87acec]">
+            X
+        </button>
+        
+    </div>
+</form>
+

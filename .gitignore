@@ -9,4 +9,6 @@ venv/
 # Ignorar arquivos de configuração e variáveis de ambiente
 .env
 
+instance/
+
 
