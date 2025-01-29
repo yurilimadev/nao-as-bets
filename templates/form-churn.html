@@ -2,14 +2,9 @@
 <form class="" action="{{ url_for('get_form') }}" method="POST" novalidate>
     <h1 class="text-2xl">Conte para a internet a sua experiência</h1>
     {{ form_churn.hidden_tag() }}
+    <input type="hidden" name="depoimento_id" value="">
     <!-- Assunto -->
-    <div class="mb-4">
-        {{ form_churn.assunto.label(class_="block text-gray-700") }}
-        {{ form_churn.assunto(class_="flex gap-4") }}
-        {% for error in form_churn.assunto.errors %}
-            <p class="text-red-500 text-sm">{{ error }}</p>
-        {% endfor %}
-    </div>
+    <input type="hidden" name="assunto" value="">
 
     <!-- Motivo -->
     <div class="mb-4">

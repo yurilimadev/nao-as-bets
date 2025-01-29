@@ -20,12 +20,13 @@
             <p>
                 {{ depoimento.depoimento }}
             </p>
+            <p class="text-sm text-[#b2b2b2]">{{ depoimento.estado }} - {{ depoimento.idade }} anos - {{ depoimento.sexo }}</p>
             <div class="flex justify-end gap-6">
                 <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" onclick="closeModal('{{ depoimento.id }}')">
                     Fechar
                 </button>
-                <button class="editar mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-blue-600" data-id="{{ depoimento.id }}" onclick="abrirFormulario(this)">
-                    Editar
+                <button class="editar mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-blue-600" data-id='{"id": {{ depoimento.id }},"assunto":"{{ depoimento.assunto }}" }' onclick="abrirFormulario(this)">
+                    Remover
                 </button>
             </div>
         </dialog>

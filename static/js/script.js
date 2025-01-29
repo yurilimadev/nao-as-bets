@@ -69,28 +69,43 @@ function abrirFormulario(){
                     dialog.close();
                 }
             }
-        
+            let info = JSON.parse(botao.getAttribute("data-id"));
+            console.log("ID do depoimento:", info.id, info.assunto);
             // Captura o ID do depoimento a partir do atributo data-id
-            const idDepoimento = botao.dataset.id;
+            // const idDepoimento = botao.dataset.id;
 
             // Seleciona o dialog correspondente
-            const dialog = document.querySelector(`#textModal-${idDepoimento}`);
+            const dialog = document.querySelector(`#textModal-${info.id}`);
 
             if (dialog) {
-                console.log(`Abrindo modal para o depoimento com ID: ${idDepoimento}`);
+                console.log(`Abrindo modal para o depoimento com ID: ${info.id}`);
 
                 // Substitui o conteúdo do modal pelo formulário de edição
                 try{
-                    const response = await fetch(`/get-form`);
+                    const response = await fetch(`/get-form?depoimento_id=${info.id}&assunto=${info.assunto}`);
                     const data = await response.json();
                     dialog.innerHTML = data.html;
                     dialog.showModal();
-                    dialog.classList.add(`form-remover-${idDepoimento}`)
+                    dialog.classList.add(`form-remover-${info.id}`)
 
+                    const inputHidden = dialog.querySelector("input[name='depoimento_id']");
+                    if (inputHidden) {
+                        inputHidden.value = info.id; // Define o ID no campo
+                        console.log(`Input hidden atualizado: ${inputHidden.value}`);
+                    } else {
+                        console.warn("Campo hidden de depoimento_id não encontrado.");
+                    }
+                    const inputHiddenAssunto = dialog.querySelector("input[name='assunto']");
+                    if (inputHiddenAssunto) {
+                        inputHiddenAssunto.value = info.assunto; // Define o ID no campo
+                        console.log(`Input hidden Assunto atualizado: ${inputHiddenAssunto.value}`);
+                    } else {
+                        console.warn("Campo hidden de assunto não encontrado.");
+                    }
 
                     const botaoFechar = dialog.querySelector('.close-form'); // Seletor para o botão fechar
                     if (botaoFechar) {
-                        botaoFechar.addEventListener('click', () => closeForm(idDepoimento));
+                        botaoFechar.addEventListener('click', () => closeForm(info.id));
                     }
                 }
 
@@ -98,7 +113,7 @@ function abrirFormulario(){
                     console.error("Erro ao abrir modal:", error);
                 }
             } else {
-                console.error(`Dialog com ID textModal-${idDepoimento} não encontrado.`);
+                console.error(`Dialog com ID textModal-${info.id} não encontrado.`);
             }
             
         });

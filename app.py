@@ -44,7 +44,8 @@ def index():
                 sexo=sexo,
                 estado=estado,
                 depoimento=depoimento,
-                assunto=assunto
+                assunto=assunto,
+                data_cadastro=db.func.now()
             )
 
             db.session.add(novo_depoimento)
@@ -84,18 +85,22 @@ def depoimento_bets():
 @app.route('/get-form', methods=['GET', 'POST'])
 def get_form():
     form_churn = FormChurnDepoimento()
+    depoimento_id = request.form.get("depoimento_id", type=int)
+    assunto = request.form.get("assunto", type=str)
     if request.method == 'POST':
         if form_churn.validate_on_submit():
-            assunto = form_churn.assunto.data
+
             motivo = form_churn.motivo.data
 
             depoimento_para_excluir = Depoimento.query.filter_by(
-                id=form_churn.depoimento_id, assunto=assunto).first()
+                id=depoimento_id).first()
+
             if depoimento_para_excluir:
                 churn = ChurnDepoimento(
                     assunto=assunto,
                     motivo=motivo,
-                    depoimento_id=depoimento_para_excluir.id
+                    depoimento_id=depoimento_para_excluir.id,
+                    data_exclusao=db.func.now()
                 )
 
                 db.session.add(churn)
