@@ -4,17 +4,18 @@
 
 
 <!--Corpo-->
-<main class="w-[92%] mx-auto">
-    <section class="bg-[#f7f7f7]">
+<main class="mx-auto">
+    
+    <section class="bg-[#FFBD5F]">
         <div class="flex flex-col justify-between items-center px-20 py-20">
-            <h1 class="text-3xl">Marque na internet a sua história</h1>
+            <h1 class="text-3xl font-bold">Marque na internet a sua história</h1>
             <p>Escreva seu depoimento sobre às Bets(casas de apostas) ou sobre sua experiência sobre 
                 a escala 6x1! Faça isso de forma totalmente anônima. As únicas informações que pedidos são 
                 o estado, genero e idade. Com essa informações podemos ter uma estimativa da situações que 
                 esses estratos demográficos estão passando. 
             </p>
             <div  class="flex items-center gap-6">
-                <button id="form-botao" class="bg-[#a6c1ee] text-white px-5 py-2 rounded-full hover:bg-[#87acec]">Contar minha história!</button>
+                <button id="form-botao" class="bg-[#B54343] text-white px-5 py-2 rounded-full hover:bg-[#B543ff]">Contar minha história!</button>
             </div>
             <dialog class="relative form-depo w-96 p-6 shadow-lg bg-white rounded-md">
                 <form action="{{ url_for('index') }}" method="POST" novalidate>
@@ -77,13 +78,13 @@
         
                     <!-- Botão -->
                     <div class="flex items-center gap-6">
-                        {{ form_depoimento.submit(class_="bg-blue-500 text-white px-5 py-2 rounded hover:bg-blue-400") }}
+                        {{ form_depoimento.submit(class_="bg-[#B54343] hover:bg-[#B543ff] text-white px-5 py-2 rounded") }}
                     </div>
                     
                 </form>
                 
                 <div class="absolute top-0 right-0 items-center gap-6">
-                    <button class="close-form bg-[#a6c1ee] text-white px-5 py-2 rounded-full hover:bg-[#87acec]">X</button>
+                    <button class="close-form bg-[#B54343] text-white px-5 py-2 rounded-full hover:bg-[#B543ff]">X</button>
                     
                 </div>
             </dialog>
@@ -93,24 +94,24 @@
     </section>
     <section class="flex flex-col items-center my-4 py-5">
         <div>
-            <h1 class="text-3xl">Veja os depoimentos.</h1>
-            <p class="text-sm text-[#b2b2b2]">(Escolha qualquer um dos tópicos abaixo)</p>
+            <h1 class="text-3xl text-white font-bold">Veja os depoimentos.</h1>
+            <p class="text-sm text-[#FFFFFF]">(Escolha qualquer um dos tópicos abaixo)</p>
         </div>
        
         <div class="flex gap-6">
             <div class="flex items-center gap-6">
-                <button id="seis-por-um" class="bg-[#a6c1ee] text-white px-5 py-2 rounded-full hover:bg-[#87acec]">6 x 1</button>
+                <button id="seis-por-um" class="bg-[#B54343] text-white px-5 py-2 rounded-full hover:bg-[#B543ff]">6 x 1</button>
                 
             </div>
             <div class="flex items-center gap-6">
-                <button id="bets" class="bg-[#a6c1ee] text-white px-5 py-2 rounded-full hover:bg-[#87acec]">Bets</button>
+                <button id="bets" class="bg-[#B54343] text-white px-5 py-2 rounded-full hover:bg-[#B543ff]">Bets</button>
                 
             </div>
         </div>
         
         
     </section>
-    <section class="mt-10">
+    <section class="w-[92%] mt-10 mx-auto">
         <!--Mockup Depoimento-->
         <div id="area-depoimento">
             
@@ -120,8 +121,8 @@
     
 </main>
 <!--Rodapé-->
-<footer>
-    Todos os direitos reservados - 2025
+<footer class="bg-[#000] text-white flex-col text-center fixed bottom-0 w-full">
+    Todos os direitos reservados - Yuri Dimitri Ribeiro Lima - 2025
 </footer>
 
 {% endblock %}

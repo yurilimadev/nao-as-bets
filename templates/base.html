@@ -13,7 +13,8 @@
     {% block head %}
     {% endblock %}
 </head>
-<body>
+<body class="relative bg-[url('https://images.pexels.com/photos/207142/pexels-photo-207142.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover bg-center bg-no-repeat min-h-screen">
+    <div class="absolute inset-0 bg-black opacity-50 -z-10"></div>
     {% with mensagens = get_flashed_messages(with_categories=True)%}
         {% if mensagens %}
         <div id="flash" class="alert-container">
@@ -43,19 +44,19 @@
     </script>
 
     <!--Cabecalho-->
-    <header class="bg-[#e3e3e3] py-5">
+    <header class="bg-[#000] py-5 drop-shadow-md text-white">
         <nav class="flex justify-between items-center w-[92%] mx-auto">
             <div>
                 <h1 class="text-lg font-bold">Mural</h1>
             </div>
-            <div class="md:block hidden nav-links md:static absolute md:min-h-fit min-h-[20vh] left-0 top-[8%] md:w-auto w-full flex items-center px-5 transition-all duration-300 ease-in-out bg-[#e3e3e3]">
+            <div class="md:block hidden nav-links md:static absolute md:min-h-fit min-h-[20vh] left-0 top-[8%] md:w-auto w-full flex items-center px-5 transition-all duration-300 ease-in-out bg-[#000]">
                 <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-6">
                     <li><a class="hover:text-gray-500" href="{{ url_for('index') }}">Home</a></li>
                     <li><a class="hover:text-gray-500" href="{{ url_for('contribua') }}">Motivação</a></li>
                 </ul>
             </div>
             <div class="flex items-center gap-6">
-                <button class="bg-[#a6c1ee] text-white px-5 py-2 rounded-full hover:bg-[#87acec]">Contribua</button>
+                <button class="bg-[#B54343] text-white px-5 py-2 rounded-full hover:bg-[#B543ff]">Contribua</button>
                 <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3x1 cursor-pointer md:hidden"></ion-icon>
             </div>
             
