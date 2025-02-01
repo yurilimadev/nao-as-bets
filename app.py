@@ -64,6 +64,11 @@ def index():
 def contribua():
     return render_template('contribua.html')
 
+
+@app.route('/motivacao')
+def motivacao():
+    return render_template('motivacao.html')
+
 # Rotas para Mostrar depoimentos
 
 

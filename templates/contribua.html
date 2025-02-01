@@ -1,39 +1,71 @@
 {% extends 'base.html' %}
 
 {% block body %}
-
-<main class="w-[92%] mx-auto">
-    <section class="bg-[#FFBD5F]">
-        <div class="flex flex-col justify-between items-center px-20 py-20">
-            <h1 class="text-3xl">Eu precisa fazer alguma coisa...</h1>
-            <!--Big Ideia: Contar sua história pode fazer bem -->
-            <p>
-                PREMISSA 1
-            </p>
-            <p>
-                PREMISSA 2
-            </p>
-            <p>
-                PREMISSA 3
-            </p>
-            <p>
-                PREMISSA 4
-            </p>
-            <p>
-                PREMISSA 5
-            </p>
-            <p>
-                CONCLUSÃO
-            </p>
+<main class="md:w-[80%] w-[92%] mx-auto md:px-20 md:py-20 pt-5">
+    <div class="md:flex flex-wrap justify-around bg-[#FFBD5F] md:px-20 md:py-20 py-5 md:rounded-xl">
+        <div class="md:text-3xl text-3xl md:text-left text-center font-bold">
+            <h1>Quais as formas que você pode ajudar?</h1>
         </div>
-        
-    </section>
-    
-    
+        <div class="flex flex-col gap-4 items-center">
+            <div class="md:flex flex flex-col md:items-center justify-items-center gap-4">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=chave" class="w-40" alt="QR Code para Doações">
+                <!-- Texto escondido (mas acessível) -->
+                <p class="textoParaCopiar visually-hidden" style="display: none;">00020126580014BR.GOV.BCB.PIX01368b67ea6d-f7c8-43d9-a6e5-70d9dc50ec415204000053039865802BR5925Yuri Dimitri Ribeiro Lima6005Natal62070503***63048839</p>
+                <button onclick="copiarTexto(this)" class="botao-copiar bg-[#B54343] text-white px-5 py-2 rounded-full hover:bg-[#B543ff]">
+                    Copiar Chave Pix
+                </button>
+            </div>
+            
+            <div class="md:flex flex flex-col md:items-center justify-items-center gap-4">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://github.com/yurilimadev" class="w-40" alt="QR Code do GitHub">
+                <p class="textoParaCopiar visually-hidden" style="display: none;">https://github.com/yurilimadev</p>
+                <button onclick="copiarTexto(this)" class="botao-copiar bg-[#B54343] text-white px-5 py-2 rounded-full hover:bg-[#B543ff]">
+                    Copiar Link Git
+                </button>
+            </div>
+        </div>
+    </div>
 </main>
-<!--Rodapé-->
-<footer>
-    
+
+<footer class="bg-[#000] text-white flex-col text-center fixed bottom-0 w-full">
+    Todos os direitos reservados - Yuri Dimitri Ribeiro Lima - 2025
 </footer>
+
+<div id="customAlert" class="hidden p-4 mb-4 text-sm rounded-lg fixed top-5 right-5 w-80">
+    <span class="font-medium"></span><span id="alertMessage"></span>
+</div>
+
+<script>
+function copiarTexto(botaoClicado) {
+  const texto = botaoClicado.previousElementSibling;
+  const alertElement = document.getElementById("customAlert");
+  const alertMessage = document.getElementById("alertMessage");
+
+  navigator.clipboard.writeText(texto.innerText)
+    .then(() => {
+      alertElement.className = "p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 fixed top-5 right-5 w-80";
+      alertElement.querySelector('.font-medium').textContent = "Sucesso! ";
+      alertMessage.textContent = "Texto copiado para a área de transferência.";
+      alertElement.classList.remove("hidden");
+      
+      setTimeout(() => {
+        alertElement.classList.add("hidden");
+      }, 3000);
+    })
+    .catch((err) => {
+      alertElement.className = "p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 fixed top-5 right-5 w-80";
+      alertElement.querySelector('.font-medium').textContent = "Erro! ";
+      alertMessage.textContent = "Não foi possível copiar o texto.";
+      alertElement.classList.remove("hidden");
+      
+      setTimeout(() => {
+        alertElement.classList.add("hidden");
+      }, 3000);
+    });
+}
+</script>
+
+
+
 
 {% endblock %}

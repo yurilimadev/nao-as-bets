@@ -71,4 +71,4 @@ class FormChurnDepoimento(FlaskForm):
         ],
         validators=[DataRequired()],
     )
-    submit = SubmitField("Editar")
+    submit = SubmitField("Remover")

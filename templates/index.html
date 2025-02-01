@@ -6,15 +6,18 @@
 <!--Corpo-->
 <main class="mx-auto">
     
-    <section class="bg-[#FFBD5F]">
-        <div class="flex flex-col justify-between items-center px-20 py-20">
-            <h1 class="text-3xl font-bold">Marque na internet a sua história</h1>
-            <p>Escreva seu depoimento sobre às Bets(casas de apostas) ou sobre sua experiência sobre 
-                a escala 6x1! Faça isso de forma totalmente anônima. As únicas informações que pedidos são 
-                o estado, genero e idade. Com essa informações podemos ter uma estimativa da situações que 
-                esses estratos demográficos estão passando. 
-            </p>
-            <div  class="flex items-center gap-6">
+    <section class="bg-[#FFBD5F] bg-cover bg-center bg-no-repeat h-380" style="background-image: url('{{ url_for('static', filename='header.jpg') }}');">
+        <div class="flex flex-col justify-between items-center md:items-start px-5 py-5 md:px-20 md:py-20 gap-6">
+            <div class="flex flex-col justify-between md:items-start md:w-[50%] gap-6">
+                <h1 class="md:text-3xl text-3xl md:text-left text-center font-bold">Marque na internet a sua história</h1>
+                <p>Escreva seu depoimento sobre às Bets(casas de apostas) ou sobre sua experiência sobre 
+                    a escala 6x1! Faça isso de forma totalmente anônima. As únicas informações que pedidos são 
+                    o estado, genero e idade. Com essa informações podemos ter uma estimativa da situações que 
+                    esses estratos demográficos estão passando. 
+                </p>
+            </div>
+            
+            <div class="flex items-center gap-6">
                 <button id="form-botao" class="bg-[#B54343] text-white px-5 py-2 rounded-full hover:bg-[#B543ff]">Contar minha história!</button>
             </div>
             <dialog class="relative form-depo w-96 p-6 shadow-lg bg-white rounded-md">
@@ -92,9 +95,9 @@
         </div>
         
     </section>
-    <section class="flex flex-col items-center my-4 py-5">
-        <div>
-            <h1 class="text-3xl text-white font-bold">Veja os depoimentos.</h1>
+    <section class="flex flex-col items-center my-4 py-5 gap-6">
+        <div class="flex flex-col items-center">
+            <h1 class="text-3xl text-white font-bold">Veja os depoimentos</h1>
             <p class="text-sm text-[#FFFFFF]">(Escolha qualquer um dos tópicos abaixo)</p>
         </div>
        
