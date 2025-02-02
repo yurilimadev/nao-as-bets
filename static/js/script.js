@@ -85,6 +85,8 @@ function abrirFormulario(){
                     const response = await fetch(`/get-form?depoimento_id=${info.id}&assunto=${info.assunto}`);
                     const data = await response.json();
                     dialog.innerHTML = data.html;
+                    const paragrafoInicio = dialog.querySelector('.depoimento');
+                    paragrafoInicio.scrollTop = 0;
                     dialog.showModal();
                     dialog.classList.add(`form-remover-${info.id}`)
 

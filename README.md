@@ -1,5 +1,5 @@
 # Projeto Voluntário - Mural de Depoimentos Anônimos Sobre as Bets
-![image](https://github.com/user-attachments/assets/828d919e-0647-4ab8-97b1-f253dcab3e00)
+![Demonstração do projeto](static/demonstracao.gif)
 ## Descrição do projeto
 <p>
   Assistindo ao Instituto Conhecimento Liberta nessas últimas semanas de setembro de 2024, me inspirei a ajudar a causa de instituição. 
@@ -18,7 +18,7 @@
   Esse pequeno projeto voluntário foi feito para mostrar que mesmo ideias pequenas podem ajudar de alguma forma as pessoas ao nosso redor. E se vocês estão curiosos de como eu fiz 
   esse projeto foi feito com:
   
-  [![My Skills](https://skillicons.dev/icons?i=php,html,js,css,sqlite)](https://skillicons.dev)
+  [![My Skills](https://skillicons.dev/icons?i=python,html,js,css,sqlite)](https://skillicons.dev)
 </p>
 
 ## Observação Pessoal
