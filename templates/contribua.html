@@ -3,10 +3,22 @@
 {% block body %}
 <main class="md:w-[80%] w-[92%] mx-auto md:px-20 md:py-20 pt-5">
     <div class="md:flex flex-wrap justify-around bg-[#FFBD5F] md:px-20 md:py-20 py-5 md:rounded-xl">
-        <div class="md:text-3xl text-3xl md:text-left text-center font-bold">
-            <h1>Quais as formas que você pode ajudar?</h1>
+        <div class="mb-4">
+            
+            <article class="md:w-[80%] w-[92%] mx-auto bg-white p-6 rounded-lg shadow-lg">
+                <h1 class="text-3xl font-bold mb-4">Quais as formas que você pode ajudar?</h1>
+                <p class="mb-4">Se você chegou aqui, deve ser porque está explorando o site todo ou porque realmente quer saber como retribuir. O que posso te dizer é que há duas formas de contribuir, e vou explicar cada uma delas:</p>
+                
+                <h2 class="text-2xl font-semibold mb-4">1. Doação</h2>
+                <p class="mb-4">As doações ajudam a custear valores de hospedagem e manutenção do projeto, possíveis upgrades de armazenamento e também podem contribuir para meus estudos enquanto não entro no mercado de trabalho.</p>
+                
+                <h2 class="text-2xl font-semibold mb-4">2. Melhorias no Projeto</h2>
+                <p class="mb-4">O repositório do GitHub estará disponível para qualquer desenvolvedor que queira participar do projeto. Você pode ajudar com novas soluções, implementações ou até mesmo como um participante ativo.</p>
+                
+                <p class="mb-4">Essas são as duas principais formas de contribuir com o projeto. Se você sabe de mais alguma maneira que possa sugerir, ficarei feliz em analisar com todo o carinho. Entre em contato comigo pelo e-mail: <a href="mailto:dimitri.limaf@gmail.com" class="text-blue-500 hover:underline">dimitri.limaf@gmail.com</a>.</p>
+            </article>
         </div>
-        <div class="flex flex-col gap-4 items-center">
+        <div class="flex flex-row justify-around items-center gap-[10vw]">
             <div class="md:flex flex flex-col md:items-center justify-items-center gap-4">
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=chave" class="w-40" alt="QR Code para Doações">
                 <!-- Texto escondido (mas acessível) -->
@@ -27,8 +39,8 @@
     </div>
 </main>
 
-<footer class="bg-[#000] text-white flex-col text-center fixed bottom-0 w-full">
-    Todos os direitos reservados - Yuri Dimitri Ribeiro Lima - 2025
+<footer class="bg-[#000] text-white flex-col text-center bottom-0 w-full">
+    © 2025 Muralize. Todos os direitos reservados.
 </footer>
 
 <div id="customAlert" class="hidden p-4 mb-4 text-sm rounded-lg fixed top-5 right-5 w-80">

@@ -5,6 +5,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const areaDocumentos = document.querySelector('#area-depoimento');
 
     botaoSeisPorUm.addEventListener('click',()=>{
+        const rodape = document.querySelector('footer');
+        if (rodape.classList.contains('fixed')){
+            rodape.classList.remove('fixed');
+        }
         fetch('/depoimento/seis-por-um')
         .then(response =>{
             if (!response.ok){
@@ -13,6 +17,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
             return response.text();
         }).then(html => {
             areaDocumentos.innerHTML = html;
+            rodape.classList.add('fixed');
+            
           })
           .catch(error => {
             console.error(error);
@@ -21,6 +27,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
     })
 
     botaoBets.addEventListener('click', ()=>{
+        const rodape = document.querySelector('footer');
+        if (rodape.classList.contains('fixed')){
+            rodape.classList.remove('fixed');
+        }
         fetch('/depoimento/bets')
         .then(response =>{
             if (!response.ok){
@@ -29,6 +39,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
             return response.text();
         }).then(html => {
             areaDocumentos.innerHTML = html;
+            rodape.classList.add('fixed');
           })
           .catch(error => {
             console.error(error);
