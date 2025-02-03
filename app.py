@@ -1,16 +1,16 @@
 from flask import Flask, render_template, url_for, flash, redirect, request, jsonify
 from forms import FormCriarDepoimento, FormChurnDepoimento
 from flask_wtf.csrf import CSRFProtect
-from dotenv import dotenv_values
+import os
 from models import db, Depoimento, ChurnDepoimento
 from flask_migrate import Migrate
 
 app = Flask(__name__)
-config = dotenv_values(".env")
+
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///depoimentos.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = config['TOKEN_SEGURANCA']
+app.config['SECRET_KEY'] = os.getenv('TOKEN_SEGURANCA')
 
 
 migrate = Migrate(app, db)
