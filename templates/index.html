@@ -20,7 +20,7 @@
                 <button id="form-botao" class="bg-[#B54343] text-white px-5 py-2 rounded-full hover:bg-[#B543ff]">Contar minha história!</button>
             </div>
             <dialog class="relative form-depo w-96 p-6 shadow-lg bg-white rounded-md">
-                <form action="{{ url_for('index') }}" method="POST" novalidate>
+                <form id="depoimento" action="{{ url_for('index') }}" method="POST" novalidate>
                     <h1 class="text-2xl">Conte para a internet a sua experiência</h1>
                     {{ form_depoimento.hidden_tag() }}
                     
