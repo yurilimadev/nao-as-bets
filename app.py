@@ -2,13 +2,20 @@ from flask import Flask, render_template, url_for, flash, redirect, request, jso
 from forms import FormCriarDepoimento, FormChurnDepoimento
 from flask_wtf.csrf import CSRFProtect
 import os
+import urllib.parse
 from models import db, Depoimento, ChurnDepoimento
 from flask_migrate import Migrate
 
 app = Flask(__name__)
 
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = urllib.parse.quote_plus(os.getenv('DB_PASSWORD'))
+DB_HOST = os.getenv("DB_HOST")
+DB_NAME = os.getenv("DB_NAME")
+DB_PORT = os.getenv("DB_PORT", "3306")
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///depoimentos.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://{
+    DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = os.getenv('TOKEN_SEGURANCA')
 
